@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 # mrdqa_tool
 
 Malaria Routine Data Quality Assessment Tool: A Checklist to Assess the Quality of Malaria Program Data
@@ -45,4 +44,3 @@ This README would normally document whatever steps are necessary to get your app
 
 * Repo owner or admin
 * Other community or team contact
->>>>>>> c671dfac666b2140bf1a605ea1767265edc6cc6c
