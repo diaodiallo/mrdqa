@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:mrdqa_tool/routes/Routes.dart';
 
 class MenuManager {
@@ -13,24 +14,31 @@ class MenuManager {
       children: <Widget>[
         Padding(padding: EdgeInsets.only(top: 20)),
         ListTile(
-          leading: Icon(Icons.info),
+          leading: Icon(FontAwesomeIcons.info),
           title: Text("Instructions"),
           onTap: () {
             Navigator.pushReplacementNamed(this.context, this.routes.instructions);
           },
         ),
         ListTile(
-          leading: Icon(Icons.info),
+          leading: Icon(FontAwesomeIcons.hospital),
           title: Text("Facility Information"),
           onTap: () {
             Navigator.pushReplacementNamed(this.context, this.routes.facilityInformation);
           },
         ),
         ListTile(
-          leading: Icon(Icons.info),
+          leading: Icon(FontAwesomeIcons.signal),
           title: Text("Indicators"),
           onTap: () {
             Navigator.pushReplacementNamed(this.context, this.routes.indicator);
+          },
+        ),
+        ListTile(
+          leading: Icon(FontAwesomeIcons.chartPie),
+          title: Text("Dashboards"),
+          onTap: () {
+            Navigator.pushReplacementNamed(this.context, this.routes.dashboards);
           },
         ),
         Divider(),

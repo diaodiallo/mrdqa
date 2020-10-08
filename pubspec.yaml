@@ -21,6 +21,8 @@ environment:
   sdk: ">=2.7.0 <3.0.0"
 
 dependencies:
+  syncfusion_flutter_charts: ^18.3.38
+  font_awesome_flutter: ^8.10.0
   flutter_markdown: ^0.4.4
   logger:
   flutter:

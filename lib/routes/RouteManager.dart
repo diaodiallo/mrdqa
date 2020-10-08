@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:mrdqa_tool/pages/DashboardPage.dart';
 import 'package:mrdqa_tool/pages/FacilityInformationPage.dart';
 import 'package:mrdqa_tool/pages/InstructionPage.dart';
 
@@ -8,15 +9,23 @@ class RouteManager {
 
     switch(settings.name){
       case '/instructions':
+
         return MaterialPageRoute(builder: (_) => InstructionPage());
 
       case '/facility_information':
+
           return MaterialPageRoute(builder: (_) => FacilityInformationPage());
-        return _errorRoute();
+        //return _errorRoute();
 
       case '/indicators':
+
         return MaterialPageRoute(builder: (_) => FacilityInformationPage());
-        return _errorRoute();
+        //return _errorRoute();
+
+      case '/dashboards':
+
+        return MaterialPageRoute(builder: (_) => DashboardPage());
+        //return _errorRoute();
 
       default:
 

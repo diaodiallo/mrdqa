@@ -9,7 +9,6 @@ class InstructionPage extends StatelessWidget {
 
   static const String routeName = '/instructions';
 
-
   @override
   Widget build(BuildContext context) {
     return Scaffold(
