@@ -21,7 +21,7 @@ class MenuManager {
           },
         ),
         ListTile(
-          leading: Icon(FontAwesomeIcons.hospital),
+          leading: Icon(FontAwesomeIcons.infoCircle),
           title: Text("Facility Information"),
           onTap: () {
             Navigator.pushReplacementNamed(this.context, this.routes.facilityInformation);
