@@ -3,6 +3,7 @@ import 'package:mrdqa_tool/pages/DashboardPage.dart';
 import 'package:mrdqa_tool/pages/FacilityInformationPage.dart';
 import 'package:mrdqa_tool/pages/IndicatorPage.dart';
 import 'package:mrdqa_tool/pages/InstructionPage.dart';
+import 'package:mrdqa_tool/pages/SupervisionPage.dart';
 
 class RouteManager {
   static Route<dynamic> generateRoute(RouteSettings settings) {
@@ -26,6 +27,11 @@ class RouteManager {
       case '/dashboards':
 
         return MaterialPageRoute(builder: (_) => DashboardPage());
+        //return _errorRoute();
+      
+      case '/supervisions':
+
+        return MaterialPageRoute(builder: (_) => SupervisionPage());
         //return _errorRoute();
 
       default:
