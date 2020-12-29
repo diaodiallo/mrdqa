@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:mrdqa_tool/pages/DashboardPage.dart';
 import 'package:mrdqa_tool/pages/FacilityInformationPage.dart';
+import 'package:mrdqa_tool/pages/IndicatorPage.dart';
 import 'package:mrdqa_tool/pages/InstructionPage.dart';
 
 class RouteManager {
@@ -19,7 +20,7 @@ class RouteManager {
 
       case '/indicators':
 
-        return MaterialPageRoute(builder: (_) => FacilityInformationPage());
+        return MaterialPageRoute(builder: (_) => IndicatorPage());
         //return _errorRoute();
 
       case '/dashboards':
