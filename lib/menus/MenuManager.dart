@@ -28,17 +28,17 @@ class MenuManager {
           },
         ),
         ListTile(
-          leading: Icon(FontAwesomeIcons.prescription),
-          title: Text("Supervisions"),
-          onTap: () {
-            Navigator.pushReplacementNamed(this.context, this.routes.supervisions);
-          },
-        ),
-        ListTile(
           leading: Icon(FontAwesomeIcons.signal),
           title: Text("Indicators"),
           onTap: () {
             Navigator.pushReplacementNamed(this.context, this.routes.indicator);
+          },
+        ),
+        ListTile(
+          leading: Icon(FontAwesomeIcons.prescription),
+          title: Text("Supervisions"),
+          onTap: () {
+            Navigator.pushReplacementNamed(this.context, this.routes.supervisions);
           },
         ),
         ListTile(
