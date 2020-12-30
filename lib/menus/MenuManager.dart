@@ -48,6 +48,13 @@ class MenuManager {
             Navigator.pushReplacementNamed(this.context, this.routes.dashboards);
           },
         ),
+        ListTile(
+          leading: Icon(FontAwesomeIcons.database),
+          title: Text("Database Test"),
+          onTap: () {
+            Navigator.pushReplacementNamed(this.context, this.routes.databaseTest);
+          },
+        ),
         Divider(),
       ],
     );

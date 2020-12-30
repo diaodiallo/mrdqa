@@ -1,3 +1,4 @@
+import 'package:mrdqa_tool/database/TestDatabasePage.dart';
 import 'package:mrdqa_tool/pages/DashboardPage.dart';
 import 'package:mrdqa_tool/pages/FacilityInformationPage.dart';
 import 'package:mrdqa_tool/pages/IndicatorPage.dart';
@@ -10,6 +11,7 @@ class Routes {
   String _indicator = IndicatorPage.routeName;
   String _dashboards = DashboardPage.routeName;
   String _supervisions = SupervisionPage.routeName;
+  String _databaseTest = TestDatabasePage.routeName;
 
   String get instructions => _instructions;
 
@@ -19,4 +21,5 @@ class Routes {
 
   String get dashboards => _dashboards;
   String get supervisions => _supervisions;
+  String get databaseTest => _databaseTest;
 }

@@ -28,8 +28,9 @@ dependencies:
   flutter:
     sdk: flutter
   markdown: ^2.1.8
-  select_form_field: "^1.1.0"
-
+  select_form_field: ^1.1.0
+  sqflite:
+  path:
 
   # The following adds the Cupertino Icons font to your application.
   # Use with the CupertinoIcons class for iOS style icons.

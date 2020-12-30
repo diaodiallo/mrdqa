@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:mrdqa_tool/database/TestDatabasePage.dart';
 import 'package:mrdqa_tool/pages/DashboardPage.dart';
 import 'package:mrdqa_tool/pages/FacilityInformationPage.dart';
 import 'package:mrdqa_tool/pages/IndicatorPage.dart';
@@ -33,6 +34,9 @@ class RouteManager {
 
         return MaterialPageRoute(builder: (_) => SupervisionPage());
         //return _errorRoute();
+      case '/test_database':
+
+        return MaterialPageRoute(builder: (_) => TestDatabasePage());
 
       default:
 
