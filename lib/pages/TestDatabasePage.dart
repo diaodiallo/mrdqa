@@ -1,7 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:mrdqa_tool/database/Assessment.dart';
+import 'package:mrdqa_tool/models/Assessment.dart';
+import 'package:mrdqa_tool/services/FirestoreService.dart';
 
-import 'DatabaseHelper.dart';
+import '../services/DatabaseHelper.dart';
 
 class TestDatabasePage extends StatefulWidget {
 
@@ -47,7 +48,10 @@ class _TestDatabasePageState extends State<TestDatabasePage> {
                   //Scaffold.of(context).showSnackBar(SnackBar(content: Text('Processing Data')));
                   String id = textController.text;
                   debugPrint('Saving to SQLite: '+id);
+
                   _addToDb();
+                  FirestoreService firestore = FirestoreService();
+                  firestore.addAssessment(Assessment(facility_id: "908", assessment_data: id));
                 }
               }),
             )

@@ -1,7 +1,7 @@
 import 'package:path/path.dart';
 import 'package:sqflite/sqflite.dart';
 
-import 'Assessment.dart';
+import '../models/Assessment.dart';
 
 class DatabaseHelper {
   static final DATABASE_NAME = "mdqa.db";

@@ -15,12 +15,15 @@ class LandingPage extends StatelessWidget {
       ),
       body: Center(
         child: Container(
-          child: Column(
-            mainAxisAlignment: MainAxisAlignment.center,
-            children: <Widget>[
-              new Image.asset('assets/landing_page.png'),
-            ],
+          child: SingleChildScrollView(
+            child: Column(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: <Widget>[
+                new Image.asset('assets/landing_page.png'),
+              ],
+            ),
           ),
+
         ),
       ),
     );

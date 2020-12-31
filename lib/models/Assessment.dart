@@ -1,4 +1,6 @@
-import 'DatabaseHelper.dart';
+import 'package:cloud_firestore/cloud_firestore.dart';
+
+import '../services/DatabaseHelper.dart';
 
 class Assessment {
   String facility_id;

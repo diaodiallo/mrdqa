@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:mrdqa_tool/database/TestDatabasePage.dart';
+import 'package:mrdqa_tool/pages/TestDatabasePage.dart';
 import 'package:mrdqa_tool/pages/DashboardPage.dart';
 import 'package:mrdqa_tool/pages/FacilityInformationPage.dart';
 import 'package:mrdqa_tool/pages/IndicatorPage.dart';
