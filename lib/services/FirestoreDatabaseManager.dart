@@ -1,7 +1,7 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:mrdqa_tool/models/Assessment.dart';
 
-class FirestoreService {
+class FirestoreDatabaseManager {
 
   final db = Firestore.instance;
 
@@ -13,5 +13,9 @@ class FirestoreService {
     }).catchError((e){
       print(e.toString());
     });
+  }
+
+  Future<void> deleteAssessment(String assessmentId) async {
+    db.collection("assessments").document(assessmentId).delete();
   }
 }

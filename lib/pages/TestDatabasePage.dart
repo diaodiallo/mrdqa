@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:mrdqa_tool/models/Assessment.dart';
-import 'package:mrdqa_tool/services/FirestoreService.dart';
+import 'package:mrdqa_tool/services/FirestoreDatabaseManager.dart';
 
-import '../services/DatabaseHelper.dart';
+import '../services/SqliteDatabaseManager.dart';
 
 class TestDatabasePage extends StatefulWidget {
 
@@ -16,7 +16,7 @@ class _TestDatabasePageState extends State<TestDatabasePage> {
   void initState(){
     super.initState();
     debugPrint('CREATING DATABASE::::');
-    DatabaseHelper.instance.database;
+    SqliteDatabaseManager.instance.database;
   }
   final _formKey = GlobalKey<FormState>();
   TextEditingController textController = new TextEditingController();
@@ -49,9 +49,10 @@ class _TestDatabasePageState extends State<TestDatabasePage> {
                   String id = textController.text;
                   debugPrint('Saving to SQLite: '+id);
 
-                  _addToDb();
-                  FirestoreService firestore = FirestoreService();
+                  _addToSqliteDb();
+                  FirestoreDatabaseManager firestore = FirestoreDatabaseManager();
                   firestore.addAssessment(Assessment(facility_id: "908", assessment_data: id));
+                  //firestore.deleteAssessment('p445wFjpl65JEzzRDYQI');
                 }
               }),
             )
@@ -60,8 +61,8 @@ class _TestDatabasePageState extends State<TestDatabasePage> {
       ),
     );
   }
-  void _addToDb() async {
+  void _addToSqliteDb() async {
     String task = textController.text;
-    var id = await DatabaseHelper.instance.insert(Assessment(facility_id: task, assessment_data: '123'));
+    var id = await SqliteDatabaseManager.instance.insert(Assessment(facility_id: task, assessment_data: '123'));
   }
 }

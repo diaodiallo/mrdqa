@@ -3,7 +3,7 @@ import 'package:sqflite/sqflite.dart';
 
 import '../models/Assessment.dart';
 
-class DatabaseHelper {
+class SqliteDatabaseManager {
   static final DATABASE_NAME = "mdqa.db";
   static final DATABASE_VERSION = 1;
   static final DATABASE_TABLE = "assessment";
@@ -11,8 +11,8 @@ class DatabaseHelper {
   static final FACILITY_ID = 'facility_id';
   static final ASSESSMENT_DATA = 'assessment_data';
 
-  DatabaseHelper._privateConstructor();
-  static final DatabaseHelper instance = DatabaseHelper._privateConstructor();
+  SqliteDatabaseManager._privateConstructor();
+  static final SqliteDatabaseManager instance = SqliteDatabaseManager._privateConstructor();
   static Database _database;
 
   Future<Database> get database async {

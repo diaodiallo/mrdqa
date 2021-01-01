@@ -1,6 +1,6 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 
-import '../services/DatabaseHelper.dart';
+import '../services/SqliteDatabaseManager.dart';
 
 class Assessment {
   String facility_id;
@@ -15,8 +15,8 @@ class Assessment {
 
   Map<String, dynamic> toMap() {
     return {
-      DatabaseHelper.FACILITY_ID: facility_id,
-      DatabaseHelper.ASSESSMENT_DATA: assessment_data,
+      SqliteDatabaseManager.FACILITY_ID: facility_id,
+      SqliteDatabaseManager.ASSESSMENT_DATA: assessment_data,
     };
   }
 }
