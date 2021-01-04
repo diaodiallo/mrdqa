@@ -1,5 +1,5 @@
 class DataElement{
-  DataElement(this.id, this.name);
+  DataElement({this.id, this.name});
   final String id;
   final String name;
 }
