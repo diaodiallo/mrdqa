@@ -53,6 +53,7 @@ class _TestDatabasePageState extends State<TestDatabasePage> {
                   FirestoreDatabaseManager firestore = FirestoreDatabaseManager();
                   firestore.addAssessment(Assessment(facility_id: "908", assessment_data: id));
                   //firestore.deleteAssessment('p445wFjpl65JEzzRDYQI');
+                  firestore.getAssessmentByFacility("908");
                 }
               }),
             )

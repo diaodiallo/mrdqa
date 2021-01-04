@@ -18,4 +18,10 @@ class FirestoreDatabaseManager {
   Future<void> deleteAssessment(String assessmentId) async {
     db.collection("assessments").document(assessmentId).delete();
   }
+  
+  Future<void> getAssessmentByFacility(String facilityID) async {
+    await db.collection("assessments").where("facility_id", isEqualTo: facilityID).snapshots().listen((data) {
+      data.documents.forEach((element) => print(element["data"]));
+    });
+  }
 }
