@@ -42,6 +42,13 @@ class MenuManager {
           },
         ),
         ListTile(
+          leading: Icon(FontAwesomeIcons.clipboard),
+          title: Text("Data Entry"),
+          onTap: () {
+            Navigator.pushReplacementNamed(this.context, this.routes.dataEntry);
+          },
+        ),
+        ListTile(
           leading: Icon(FontAwesomeIcons.chartPie),
           title: Text("Dashboards"),
           onTap: () {

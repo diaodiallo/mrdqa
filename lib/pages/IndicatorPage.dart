@@ -135,6 +135,12 @@ class _IndicatorPageState extends State<IndicatorPage> {
       Indicator(id: 'ind004', name: 'Number of malaria cases', typeId: 2),
       Indicator(id: 'ind005', name: 'Number of malaria cases', typeId: 3),
       Indicator(id: 'ind006', name: 'Number of malaria cases', typeId: 3),
+      Indicator(id: 'ind007', name: 'Number of malaria cases', typeId: 2),
+      Indicator(id: 'ind008', name: 'Number of malaria cases', typeId: 3),
+      Indicator(id: 'ind009', name: 'Number of malaria cases', typeId: 3),
+      Indicator(id: 'ind010', name: 'Number of malaria cases', typeId: 2),
+      Indicator(id: 'ind011', name: 'Number of malaria cases', typeId: 3),
+      Indicator(id: 'ind012', name: 'Number of malaria cases', typeId: 3),
     ];
     return indicators;
   }
@@ -165,9 +171,12 @@ class _IndicatorPageState extends State<IndicatorPage> {
 
   List<IndicatorType> _getIndicatorsType() {
     List<IndicatorType> indicators = [
-      IndicatorType(id: 1, name: 'Type 1'),
-      IndicatorType(id: 2, name: 'Type 2'),
-      IndicatorType(id: 3, name: 'Type 3'),
+      IndicatorType(id: 1, name: 'Indicator Type 1'),
+      IndicatorType(id: 2, name: 'Indicator Type 2'),
+      IndicatorType(id: 3, name: 'Indicator Type 3'),
+      IndicatorType(id: 4, name: 'Indicator Type 4'),
+      IndicatorType(id: 5, name: 'Indicator Type 5'),
+      IndicatorType(id: 6, name: 'Indicator Type 6'),
     ];
     return indicators;
   }
@@ -197,9 +206,18 @@ class _IndicatorPageState extends State<IndicatorPage> {
 
   List<DataElement> _getDataElements() {
     List<DataElement> dataElements = [
-      DataElement(id: "element001", name: 'Public'),
-      DataElement(id: "element002", name: 'Private'),
-      DataElement(id: "element003", name: 'Confessionnal'),
+      DataElement(id: "element001", name: 'Data Element 1'),
+      DataElement(id: "element002", name: 'Data Element 2'),
+      DataElement(id: "element003", name: 'Data Element 3'),
+      DataElement(id: "element004", name: 'Data Element 4'),
+      DataElement(id: "element005", name: 'Data Element 5'),
+      DataElement(id: "element006", name: 'Data Element 6'),
+      DataElement(id: "element007", name: 'Data Element 7'),
+      DataElement(id: "element008", name: 'Data Element 8'),
+      DataElement(id: "element009", name: 'Data Element 9'),
+      DataElement(id: "element010", name: 'Data Element 10'),
+      DataElement(id: "element011", name: 'Data Element 11'),
+      DataElement(id: "element012", name: 'Data Element 12'),
     ];
     return dataElements;
   }
@@ -228,9 +246,18 @@ class _IndicatorPageState extends State<IndicatorPage> {
 
   List<DataSource> _getDataSources() {
     List<DataSource> dataSources = [
-      DataSource(id: "source001", name: 'Public'),
-      DataSource(id: "source002", name: 'Private'),
-      DataSource(id: "source003", name: 'Confessionnal'),
+      DataSource(id: "source001", name: 'Data Source 1'),
+      DataSource(id: "source002", name: 'Data Source 2'),
+      DataSource(id: "source003", name: 'Data Source 3'),
+      DataSource(id: "source004", name: 'Data Source 4'),
+      DataSource(id: "source005", name: 'Data Source 5'),
+      DataSource(id: "source006", name: 'Data Source 6'),
+      DataSource(id: "source007", name: 'Data Source 7'),
+      DataSource(id: "source008", name: 'Data Source 8'),
+      DataSource(id: "source009", name: 'Data Source 9'),
+      DataSource(id: "source010", name: 'Data Source 10'),
+      DataSource(id: "source011", name: 'Data Source 11'),
+      DataSource(id: "source012", name: 'Data Source 12'),
     ];
     return dataSources;
   }

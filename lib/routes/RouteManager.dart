@@ -5,6 +5,7 @@ import 'package:mrdqa_tool/pages/FacilityInformationPage.dart';
 import 'package:mrdqa_tool/pages/IndicatorPage.dart';
 import 'package:mrdqa_tool/pages/InstructionPage.dart';
 import 'package:mrdqa_tool/pages/SupervisionPage.dart';
+import 'package:mrdqa_tool/pages/DataEntryPage.dart';
 
 class RouteManager {
   static Route<dynamic> generateRoute(RouteSettings settings) {
@@ -37,6 +38,10 @@ class RouteManager {
       case '/test_database':
 
         return MaterialPageRoute(builder: (_) => TestDatabasePage());
+
+      case '/data_entry':
+
+        return MaterialPageRoute(builder: (_) => DataEntryPage());
 
       default:
 
