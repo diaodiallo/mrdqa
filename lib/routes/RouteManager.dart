@@ -7,6 +7,7 @@ import 'package:mrdqa_tool/pages/IndicatorPage.dart';
 import 'package:mrdqa_tool/pages/InstructionPage.dart';
 import 'package:mrdqa_tool/pages/SupervisionPage.dart';
 import 'package:mrdqa_tool/pages/DataEntryPage.dart';
+import 'package:mrdqa_tool/forms/IndicatorTypeForm.dart';
 
 class RouteManager {
   static Route<dynamic> generateRoute(RouteSettings settings) {
@@ -47,6 +48,10 @@ class RouteManager {
     case '/indicators/add_indicator':
 
     return MaterialPageRoute(builder: (_) => IndicatorForm());
+
+      case '/indicators/add_indicator_type':
+
+        return MaterialPageRoute(builder: (_) => IndicatorTypeForm());
 
     default:
 

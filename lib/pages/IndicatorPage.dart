@@ -119,7 +119,7 @@ class _IndicatorPageState extends State<IndicatorPage> {
                     color: Colors.blue,
                     onPressed: () => {
                       setState(() {
-                        //_toCreateIndicatorType(),
+                        Navigator.pushReplacementNamed(context, Routes().addIndicatorType);
                       })
                     },
                   ),),
@@ -131,22 +131,6 @@ class _IndicatorPageState extends State<IndicatorPage> {
       ),
     );
   }
-
-  // _toCreateIndicator() {
-  //
-  // }
-  //
-  // _toCreateDataElement() {
-  //
-  // }
-  //
-  // _toCreateDataSource() {
-  //
-  // }
-  //
-  // _toCreateIndicatorType() {
-  //
-  // }
 
   Widget _indicatorsView() {
     List<Indicator> indicators = _getIndicators();
