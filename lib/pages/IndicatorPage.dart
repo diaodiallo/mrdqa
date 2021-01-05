@@ -155,6 +155,17 @@ class _IndicatorPageState extends State<IndicatorPage> {
     return indicators;
   }
 
+  String _getTypeById(int id) {
+    List<IndicatorType> indicatorsType = _getIndicatorsType();
+    indicatorsType.map((indicatorType) => (
+        (){
+          if(indicatorType.id == id) {
+            return indicatorType.name;
+          }
+        }()
+    ));
+  }
+
   Widget _indicatorTypesView() {
     List<IndicatorType> indicatorsType = _getIndicatorsType();
     return Container(

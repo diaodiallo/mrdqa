@@ -1,7 +1,8 @@
 class Visit{
-  Visit(this.id, this.facility, this.date, this.teamLead);
+  Visit(this.id, this.supervisionId, this.facilityId, this.date, this.teamLead);
   final int id;
-  final String facility;
+  final int supervisionId;
+  final String facilityId;
   final DateTime date; 
   final String teamLead;
 }
