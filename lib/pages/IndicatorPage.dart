@@ -37,106 +37,128 @@ class _IndicatorPageState extends State<IndicatorPage> {
           child: MenuManager(context, Routes()).getDrawer(),
         ),
         body: TabBarView(children: [
-          IntrinsicHeight(
-            child:
-                Row(crossAxisAlignment: CrossAxisAlignment.stretch, children: [
-              Expanded(
-                child: Column(children: <Widget>[
-                  Padding(
-                    padding: EdgeInsets.all(8.0),
-                    child: Container(height: 450.0, child: _indicatorsView()),
-                  ),
-                  Container(
-                    child: IconButton(
-                      icon: Icon(Icons.add_box),
-                      color: Colors.blue,
-                      onPressed: () => {
-                        setState(() {
-                          Navigator.pushReplacementNamed(
-                              context, Routes().addIndicator);
-                        }),
-                      },
-                    ),
-                  ),
-                ]),
+          Scaffold(
+            body: Center(
+              child: IntrinsicHeight(
+                child: Row(
+                    crossAxisAlignment: CrossAxisAlignment.stretch,
+                    children: [
+                      Expanded(
+                        child: Column(children: <Widget>[
+                          Padding(
+                            padding: EdgeInsets.all(8.0),
+                            child: Container(
+                                height: 450, child: _indicatorsView()),
+                          ),
+                        ]),
+                      ),
+                    ]),
               ),
-            ]),
-          ), //IndicatorForm(context, Routes()).getDrawer()
-          IntrinsicHeight(
-            child:
-                Row(crossAxisAlignment: CrossAxisAlignment.stretch, children: [
-              Expanded(
-                child: Column(children: <Widget>[
-                  Padding(
-                    padding: EdgeInsets.all(8.0),
-                    child: Container(height: 450.0, child: _dataElementsView()),
-                  ),
-                  Container(
-                    child: IconButton(
-                      icon: Icon(Icons.add_box),
-                      color: Colors.blue,
-                      onPressed: () => {
-                        setState(() {
-                          Navigator.pushReplacementNamed(
-                              context, Routes().addDataElement);
-                        }),
-                      },
-                    ),
-                  ),
-                ]),
-              ),
-            ]),
+            ),
+            floatingActionButtonLocation:
+                FloatingActionButtonLocation.centerDocked,
+            floatingActionButton: FloatingActionButton(
+              onPressed: () {
+                setState(() {
+                  Navigator.pushReplacementNamed(
+                      context, Routes().addIndicator);
+                });
+              },
+              child: Icon(Icons.add),
+              backgroundColor: Colors.blue,
+            ),
           ),
-          IntrinsicHeight(
-            child:
-                Row(crossAxisAlignment: CrossAxisAlignment.stretch, children: [
-              Expanded(
-                child: Column(children: <Widget>[
-                  Padding(
-                    padding: EdgeInsets.all(8.0),
-                    child: Container(height: 450.0, child: _dataSourcesView()),
-                  ),
-                  Container(
-                    child: IconButton(
-                      icon: Icon(Icons.add_box),
-                      color: Colors.blue,
-                      onPressed: () => {
-                        setState(() {
-                          Navigator.pushReplacementNamed(
-                              context, Routes().addDataSource);
-                        })
-                      },
+          Scaffold(
+            body: Center(
+                child: IntrinsicHeight(
+              child: Row(
+                  crossAxisAlignment: CrossAxisAlignment.stretch,
+                  children: [
+                    Expanded(
+                      child: Column(children: <Widget>[
+                        Padding(
+                          padding: EdgeInsets.all(8.0),
+                          child: Container(
+                              height: 450.0, child: _dataElementsView()),
+                        ),
+                      ]),
                     ),
-                  ),
-                ]),
+                  ]),
+            )),
+            floatingActionButtonLocation:
+                FloatingActionButtonLocation.centerDocked,
+            floatingActionButton: FloatingActionButton(
+              onPressed: () {
+                setState(() {
+                  Navigator.pushReplacementNamed(
+                      context, Routes().addDataElement);
+                });
+              },
+              child: Icon(Icons.add),
+              backgroundColor: Colors.blue,
+            ),
+          ), //IndicatorForm(context, Routes()).getDrawer(
+          Scaffold(
+            body: Center(
+              child: IntrinsicHeight(
+                child: Row(
+                    crossAxisAlignment: CrossAxisAlignment.stretch,
+                    children: [
+                      Expanded(
+                        child: Column(children: <Widget>[
+                          Padding(
+                            padding: EdgeInsets.all(8.0),
+                            child: Container(
+                                height: 450.0, child: _dataSourcesView()),
+                          ),
+                        ]),
+                      ),
+                    ]),
               ),
-            ]),
+            ),
+            floatingActionButtonLocation:
+                FloatingActionButtonLocation.centerDocked,
+            floatingActionButton: FloatingActionButton(
+              onPressed: () {
+                setState(() {
+                  Navigator.pushReplacementNamed(
+                      context, Routes().addDataSource);
+                });
+              },
+              child: Icon(Icons.add),
+              backgroundColor: Colors.blue,
+            ),
           ),
-          IntrinsicHeight(
-            child:
-                Row(crossAxisAlignment: CrossAxisAlignment.stretch, children: [
-              Expanded(
-                child: Column(children: <Widget>[
-                  Padding(
-                    padding: EdgeInsets.all(8.0),
-                    child:
-                        Container(height: 450.0, child: _indicatorTypesView()),
-                  ),
-                  Container(
-                    child: IconButton(
-                      icon: Icon(Icons.add_box),
-                      color: Colors.blue,
-                      onPressed: () => {
-                        setState(() {
-                          Navigator.pushReplacementNamed(
-                              context, Routes().addIndicatorType);
-                        })
-                      },
-                    ),
-                  ),
-                ]),
+          Scaffold(
+            body: Center(
+              child: IntrinsicHeight(
+                child: Row(
+                    crossAxisAlignment: CrossAxisAlignment.stretch,
+                    children: [
+                      Expanded(
+                        child: Column(children: <Widget>[
+                          Padding(
+                            padding: EdgeInsets.all(8.0),
+                            child: Container(
+                                height: 450.0, child: _indicatorTypesView()),
+                          ),
+                        ]),
+                      ),
+                    ]),
               ),
-            ]),
+            ),
+            floatingActionButtonLocation:
+                FloatingActionButtonLocation.centerDocked,
+            floatingActionButton: FloatingActionButton(
+              onPressed: () {
+                setState(() {
+                  Navigator.pushReplacementNamed(
+                      context, Routes().addIndicatorType);
+                });
+              },
+              child: Icon(Icons.add),
+              backgroundColor: Colors.blue,
+            ),
           ),
         ]),
       ),
@@ -168,6 +190,13 @@ class _IndicatorPageState extends State<IndicatorPage> {
       Indicator(id: 'ind010', name: 'Number of malaria cases', typeId: 2),
       Indicator(id: 'ind011', name: 'Number of malaria cases', typeId: 3),
       Indicator(id: 'ind012', name: 'Number of malaria cases', typeId: 3),
+      Indicator(id: 'ind0013', name: 'Number of malaria cases', typeId: 3),
+      Indicator(id: 'ind014', name: 'Number of malaria cases', typeId: 2),
+      Indicator(id: 'ind015', name: 'Number of malaria cases', typeId: 3),
+      Indicator(id: 'ind016', name: 'Number of malaria cases', typeId: 3),
+      Indicator(id: 'ind017', name: 'Number of malaria cases', typeId: 2),
+      Indicator(id: 'ind018', name: 'Number of malaria cases', typeId: 3),
+      Indicator(id: 'ind019', name: 'Number of malaria cases', typeId: 3),
     ];
     return indicators;
   }
