@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:mrdqa_tool/models/Assessment.dart';
+import 'package:mrdqa_tool/models/Country.dart';
+import 'package:mrdqa_tool/repository/CountryRepository.dart';
 import 'package:mrdqa_tool/services/FirestoreDatabaseManager.dart';
 
 import '../services/SqliteDatabaseManager.dart';
@@ -50,10 +52,12 @@ class _TestDatabasePageState extends State<TestDatabasePage> {
                   debugPrint('Saving to SQLite: '+id);
 
                   _addToSqliteDb();
-                  FirestoreDatabaseManager firestore = FirestoreDatabaseManager();
-                  firestore.addAssessment(Assessment(facility_id: "908", assessment_data: id));
+                  CountryRepository cr = new CountryRepository();
+                  cr.addCountry(new Country("1234", "Uganda"));
+                  //FirestoreDatabaseManager firestore = FirestoreDatabaseManager();
+                  //firestore.addAssessment(Assessment(facility_id: "908", assessment_data: id));
                   //firestore.deleteAssessment('p445wFjpl65JEzzRDYQI');
-                  firestore.getAssessmentByFacility("908");
+                  //firestore.getAssessmentByFacility("908");
                 }
               }),
             )
