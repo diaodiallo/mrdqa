@@ -1,7 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:select_form_field/select_form_field.dart';
-import 'package:mrdqa_tool/routes/Routes.dart';
-import '../models/IndicatorType.dart';
 
 class IndicatorForm extends StatefulWidget {
   static String routeName = '/indicators/add_indicator';
@@ -11,14 +9,13 @@ class IndicatorForm extends StatefulWidget {
 }
 
 class _IndicatorFormState extends State<IndicatorForm> {
-
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-    appBar: AppBar(
-    title: Text("Adding Indicator"),
-    ),
-    body: _buildForm(),
+      appBar: AppBar(
+        title: Text("Adding Indicator"),
+      ),
+      body: _buildForm(),
     );
   }
 
@@ -40,60 +37,61 @@ class _IndicatorFormState extends State<IndicatorForm> {
         'label': 'Type 3',
       },
     ];
-      return Column(children: [
-        Padding(padding: EdgeInsets.all(8.0),
+    return Column(children: [
+      Padding(
+          padding: EdgeInsets.all(8.0),
           child: Form(
-          key: _formKey,
-          child: Column(children: <Widget>[
-            // Add TextFormFields and ElevatedButton here.
-            TextFormField(
-              decoration: InputDecoration(labelText: 'Indicator id'),
-              autofocus: true,
-              // The validator receives the text that the user has entered.
-              validator: (value) {
-                if (value.isEmpty) {
-                  return 'The Indicator should have an id';
-                }
-                return null;
-              },
-            ),
-            TextFormField(
-              decoration: InputDecoration(labelText: 'Indicator name'),
-              // The validator receives the text that the user has entered.
-              validator: (value) {
-                if (value.isEmpty) {
-                  return 'The Indicator should have a name';
-                }
-                return null;
-              },
-            ),
-            SelectFormField(
-              type: SelectFormFieldType.dropdown,
-              // or can be dialog
-              icon: Icon(Icons.local_hospital),
-              labelText: 'Indicator type',
-              items: _items,
-              validator: (value) {
-                if (value.isEmpty) {
-                  return 'The Indicator should have a Type';
-                }
-                return null;
-              },
-            ),
-            ElevatedButton(
-              onPressed: () {
-                // Validate returns true if the form is valid, otherwise false.
-                if (_formKey.currentState.validate()) {
-                  // If the form is valid, display a snackbar. In the real world,
-                  // you'd often call a server or save the information in a database.
+              key: _formKey,
+              child: Column(children: <Widget>[
+                // Add TextFormFields and ElevatedButton here.
+                TextFormField(
+                  decoration: InputDecoration(labelText: 'Indicator id'),
+                  autofocus: true,
+                  // The validator receives the text that the user has entered.
+                  validator: (value) {
+                    if (value.isEmpty) {
+                      return 'The Indicator should have an id';
+                    }
+                    return null;
+                  },
+                ),
+                TextFormField(
+                  decoration: InputDecoration(labelText: 'Indicator name'),
+                  // The validator receives the text that the user has entered.
+                  validator: (value) {
+                    if (value.isEmpty) {
+                      return 'The Indicator should have a name';
+                    }
+                    return null;
+                  },
+                ),
+                SelectFormField(
+                  type: SelectFormFieldType.dropdown,
+                  // or can be dialog
+                  icon: Icon(Icons.local_hospital),
+                  labelText: 'Indicator type',
+                  items: _items,
+                  validator: (value) {
+                    if (value.isEmpty) {
+                      return 'The Indicator should have a Type';
+                    }
+                    return null;
+                  },
+                ),
+                ElevatedButton(
+                  onPressed: () {
+                    // Validate returns true if the form is valid, otherwise false.
+                    if (_formKey.currentState.validate()) {
+                      // If the form is valid, display a snackbar. In the real world,
+                      // you'd often call a server or save the information in a database.
 
-                  Scaffold.of(context)
-                      .showSnackBar(
-                      SnackBar(content: Text('Creating Indicator')));
-                }
-              },
-              child: Text('Create'),
-            ),
-          ])))]);
+                      Scaffold.of(context).showSnackBar(
+                          SnackBar(content: Text('Creating Indicator')));
+                    }
+                  },
+                  child: Text('Create'),
+                ),
+              ])))
+    ]);
   }
 }

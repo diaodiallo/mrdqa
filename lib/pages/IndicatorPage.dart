@@ -1,16 +1,10 @@
 import 'package:flutter/material.dart';
-import 'package:flutter/services.dart';
-import 'package:flutter_markdown/flutter_markdown.dart';
 import 'package:mrdqa_tool/menus/MenuManager.dart';
 import 'package:mrdqa_tool/routes/Routes.dart';
 import '../models/Indicator.dart';
 import '../models/IndicatorType.dart';
 import '../models/DataSource.dart';
 import '../models/DataElement.dart';
-import '../forms/IndicatorForm.dart';
-import '../forms/IndicatorTypeForm.dart';
-import '../forms/DataElementForm.dart';
-import '../forms/DataSourceForm.dart';
 
 class IndicatorPage extends StatefulWidget {
   static String routeName = '/indicators';
@@ -44,85 +38,102 @@ class _IndicatorPageState extends State<IndicatorPage> {
         ),
         body: TabBarView(children: [
           IntrinsicHeight(
-            child: Row(crossAxisAlignment: CrossAxisAlignment.stretch, children: [
+            child:
+                Row(crossAxisAlignment: CrossAxisAlignment.stretch, children: [
               Expanded(
                 child: Column(children: <Widget>[
                   Padding(
                     padding: EdgeInsets.all(8.0),
                     child: Container(height: 450.0, child: _indicatorsView()),
                   ),
-                  Container(child: IconButton(
-                    icon: Icon(Icons.add_box),
-                    color: Colors.blue,
-                    onPressed: () => {
-                     setState(() {
-                       Navigator.pushReplacementNamed(context, Routes().addIndicator);
-                     }),
-                    },
-                  ),),
+                  Container(
+                    child: IconButton(
+                      icon: Icon(Icons.add_box),
+                      color: Colors.blue,
+                      onPressed: () => {
+                        setState(() {
+                          Navigator.pushReplacementNamed(
+                              context, Routes().addIndicator);
+                        }),
+                      },
+                    ),
+                  ),
                 ]),
               ),
             ]),
           ), //IndicatorForm(context, Routes()).getDrawer()
           IntrinsicHeight(
-            child: Row(crossAxisAlignment: CrossAxisAlignment.stretch, children: [
+            child:
+                Row(crossAxisAlignment: CrossAxisAlignment.stretch, children: [
               Expanded(
                 child: Column(children: <Widget>[
                   Padding(
                     padding: EdgeInsets.all(8.0),
                     child: Container(height: 450.0, child: _dataElementsView()),
                   ),
-                  Container(child: IconButton(
-                    icon: Icon(Icons.add_box),
-                    color: Colors.blue,
-                    onPressed: () => {
-                      setState(() {
-                        //_toCreateDataElement(),
-                      }),
-                    },
-                  ),),
+                  Container(
+                    child: IconButton(
+                      icon: Icon(Icons.add_box),
+                      color: Colors.blue,
+                      onPressed: () => {
+                        setState(() {
+                          Navigator.pushReplacementNamed(
+                              context, Routes().addDataElement);
+                        }),
+                      },
+                    ),
+                  ),
                 ]),
               ),
             ]),
           ),
           IntrinsicHeight(
-            child: Row(crossAxisAlignment: CrossAxisAlignment.stretch, children: [
+            child:
+                Row(crossAxisAlignment: CrossAxisAlignment.stretch, children: [
               Expanded(
                 child: Column(children: <Widget>[
                   Padding(
                     padding: EdgeInsets.all(8.0),
                     child: Container(height: 450.0, child: _dataSourcesView()),
                   ),
-                  Container(child: IconButton(
-                    icon: Icon(Icons.add_box),
-                    color: Colors.blue,
-                    onPressed: () => {
-                      setState((){
-                       // _toCreateDataSource(),
-                      })
-                    },
-                  ),),
+                  Container(
+                    child: IconButton(
+                      icon: Icon(Icons.add_box),
+                      color: Colors.blue,
+                      onPressed: () => {
+                        setState(() {
+                          Navigator.pushReplacementNamed(
+                              context, Routes().addDataSource);
+                        })
+                      },
+                    ),
+                  ),
                 ]),
               ),
             ]),
           ),
           IntrinsicHeight(
-            child: Row(crossAxisAlignment: CrossAxisAlignment.stretch, children: [
+            child:
+                Row(crossAxisAlignment: CrossAxisAlignment.stretch, children: [
               Expanded(
                 child: Column(children: <Widget>[
                   Padding(
                     padding: EdgeInsets.all(8.0),
-                    child: Container(height: 450.0, child: _indicatorTypesView()),
+                    child:
+                        Container(height: 450.0, child: _indicatorTypesView()),
                   ),
-                  Container(child: IconButton(
-                    icon: Icon(Icons.add_box),
-                    color: Colors.blue,
-                    onPressed: () => {
-                      setState(() {
-                        Navigator.pushReplacementNamed(context, Routes().addIndicatorType);
-                      })
-                    },
-                  ),),
+                  Container(
+                    child: IconButton(
+                      icon: Icon(Icons.add_box),
+                      color: Colors.blue,
+                      onPressed: () => {
+                        setState(() {
+                          Navigator.pushReplacementNamed(
+                              context, Routes().addIndicatorType);
+                        })
+                      },
+                    ),
+                  ),
                 ]),
               ),
             ]),
@@ -135,12 +146,12 @@ class _IndicatorPageState extends State<IndicatorPage> {
   Widget _indicatorsView() {
     List<Indicator> indicators = _getIndicators();
     return Container(
-          child: ListView(
-            children: indicators
-                .map((indicator) => _buildIndicatorRow(indicator))
-                .toList(),
-          ),
-        );
+      child: ListView(
+        children: indicators
+            .map((indicator) => _buildIndicatorRow(indicator))
+            .toList(),
+      ),
+    );
   }
 
   List<Indicator> _getIndicators() {
@@ -177,12 +188,12 @@ class _IndicatorPageState extends State<IndicatorPage> {
   Widget _indicatorTypesView() {
     List<IndicatorType> indicatorsType = _getIndicatorsType();
     return Container(
-        child: ListView(
-          children: indicatorsType
-              .map((indicatorType) => _buildIndicatorsTypeRow(indicatorType))
-              .toList(),
-        ),
-      );
+      child: ListView(
+        children: indicatorsType
+            .map((indicatorType) => _buildIndicatorsTypeRow(indicatorType))
+            .toList(),
+      ),
+    );
   }
 
   List<IndicatorType> _getIndicatorsType() {
@@ -212,12 +223,12 @@ class _IndicatorPageState extends State<IndicatorPage> {
   Widget _dataElementsView() {
     List<DataElement> dataElements = _getDataElements();
     return Container(
-        child: ListView(
-          children: dataElements
-              .map((dataElement) => _buildDataElementsRow(dataElement))
-              .toList(),
-        ),
-      );
+      child: ListView(
+        children: dataElements
+            .map((dataElement) => _buildDataElementsRow(dataElement))
+            .toList(),
+      ),
+    );
   }
 
   List<DataElement> _getDataElements() {
@@ -252,12 +263,12 @@ class _IndicatorPageState extends State<IndicatorPage> {
   Widget _dataSourcesView() {
     List<DataSource> dataSources = _getDataSources();
     return Container(
-        child: ListView(
-          children: dataSources
-              .map((dataSource) => _buildDataSourcesRow(dataSource))
-              .toList(),
-        ),
-      );
+      child: ListView(
+        children: dataSources
+            .map((dataSource) => _buildDataSourcesRow(dataSource))
+            .toList(),
+      ),
+    );
   }
 
   List<DataSource> _getDataSources() {

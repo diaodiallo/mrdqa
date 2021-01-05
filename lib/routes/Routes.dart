@@ -7,6 +7,8 @@ import 'package:mrdqa_tool/pages/SupervisionPage.dart';
 import 'package:mrdqa_tool/pages/DataEntryPage.dart';
 import 'package:mrdqa_tool/forms/IndicatorForm.dart';
 import 'package:mrdqa_tool/forms/IndicatorTypeForm.dart';
+import 'package:mrdqa_tool/forms/DataElementForm.dart';
+import 'package:mrdqa_tool/forms/DataSourceForm.dart';
 
 class Routes {
   String _instructions = InstructionPage.routeName;
@@ -18,6 +20,8 @@ class Routes {
   String _dataEntry = DataEntryPage.routeName;
   String _addIndicator = IndicatorForm.routeName;
   String _addIndicatorType = IndicatorTypeForm.routeName;
+  String _addDataElement = DataElementForm.routeName;
+  String _addDataSource = DataSourceForm.routeName;
 
   String get instructions => _instructions;
 
@@ -26,10 +30,18 @@ class Routes {
   String get indicator => _indicator;
 
   String get dashboards => _dashboards;
+
   String get supervisions => _supervisions;
+
   String get databaseTest => _databaseTest;
+
   String get dataEntry => _dataEntry;
 
   String get addIndicator => _addIndicator;
+
   String get addIndicatorType => _addIndicatorType;
+
+  String get addDataElement => _addDataElement;
+
+  String get addDataSource => _addDataSource;
 }
