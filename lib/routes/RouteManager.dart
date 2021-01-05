@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:mrdqa_tool/forms/IndicatorForm.dart';
 import 'package:mrdqa_tool/pages/TestDatabasePage.dart';
 import 'package:mrdqa_tool/pages/DashboardPage.dart';
 import 'package:mrdqa_tool/pages/FacilityInformationPage.dart';
@@ -43,7 +44,11 @@ class RouteManager {
 
         return MaterialPageRoute(builder: (_) => DataEntryPage());
 
-      default:
+    case '/indicators/add_indicator':
+
+    return MaterialPageRoute(builder: (_) => IndicatorForm());
+
+    default:
 
         return _errorRoute();
     }

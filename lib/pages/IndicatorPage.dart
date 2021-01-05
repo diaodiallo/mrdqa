@@ -54,12 +54,16 @@ class _IndicatorPageState extends State<IndicatorPage> {
                   Container(child: IconButton(
                     icon: Icon(Icons.add_box),
                     color: Colors.blue,
-                    onPressed: () => IndicatorForm(context, Routes()).getDrawer(),
+                    onPressed: () => {
+                     setState(() {
+                       Navigator.pushReplacementNamed(context, Routes().addIndicator);
+                     }),
+                    },
                   ),),
                 ]),
               ),
             ]),
-          ),
+          ), //IndicatorForm(context, Routes()).getDrawer()
           IntrinsicHeight(
             child: Row(crossAxisAlignment: CrossAxisAlignment.stretch, children: [
               Expanded(
@@ -71,7 +75,11 @@ class _IndicatorPageState extends State<IndicatorPage> {
                   Container(child: IconButton(
                     icon: Icon(Icons.add_box),
                     color: Colors.blue,
-                    onPressed: () => {},
+                    onPressed: () => {
+                      setState(() {
+                        //_toCreateDataElement(),
+                      }),
+                    },
                   ),),
                 ]),
               ),
@@ -88,7 +96,11 @@ class _IndicatorPageState extends State<IndicatorPage> {
                   Container(child: IconButton(
                     icon: Icon(Icons.add_box),
                     color: Colors.blue,
-                    onPressed: () => {},
+                    onPressed: () => {
+                      setState((){
+                       // _toCreateDataSource(),
+                      })
+                    },
                   ),),
                 ]),
               ),
@@ -105,7 +117,11 @@ class _IndicatorPageState extends State<IndicatorPage> {
                   Container(child: IconButton(
                     icon: Icon(Icons.add_box),
                     color: Colors.blue,
-                    onPressed: () => {},
+                    onPressed: () => {
+                      setState(() {
+                        //_toCreateIndicatorType(),
+                      })
+                    },
                   ),),
                 ]),
               ),
@@ -115,6 +131,22 @@ class _IndicatorPageState extends State<IndicatorPage> {
       ),
     );
   }
+
+  // _toCreateIndicator() {
+  //
+  // }
+  //
+  // _toCreateDataElement() {
+  //
+  // }
+  //
+  // _toCreateDataSource() {
+  //
+  // }
+  //
+  // _toCreateIndicatorType() {
+  //
+  // }
 
   Widget _indicatorsView() {
     List<Indicator> indicators = _getIndicators();
