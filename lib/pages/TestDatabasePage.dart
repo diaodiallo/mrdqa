@@ -53,7 +53,7 @@ class _TestDatabasePageState extends State<TestDatabasePage> {
 
                   _addToSqliteDb();
                   CountryRepository cr = new CountryRepository();
-                  cr.addCountry(new Country("1234", "Uganda"));
+                  cr.addCountry(new Country("7890", "KENYA"));
                   //FirestoreDatabaseManager firestore = FirestoreDatabaseManager();
                   //firestore.addAssessment(Assessment(facility_id: "908", assessment_data: id));
                   //firestore.deleteAssessment('p445wFjpl65JEzzRDYQI');
@@ -68,6 +68,7 @@ class _TestDatabasePageState extends State<TestDatabasePage> {
   }
   void _addToSqliteDb() async {
     String task = textController.text;
-    var id = await SqliteDatabaseManager.instance.insert(Assessment(facility_id: task, assessment_data: '123'));
+    var data = {'ASSESSMENT_ID': task, 'DATA': '4325'};
+    var id = await SqliteDatabaseManager.instance.insert('assessments', data);
   }
 }

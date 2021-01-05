@@ -12,11 +12,4 @@ class Assessment {
     facility_id = map['facility_id'];
     assessment_data = map['assessment_data'];
   }
-
-  Map<String, dynamic> toMap() {
-    return {
-      SqliteDatabaseManager.FACILITY_ID: facility_id,
-      SqliteDatabaseManager.ASSESSMENT_DATA: assessment_data,
-    };
-  }
 }
