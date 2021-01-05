@@ -39,21 +39,7 @@ class _IndicatorPageState extends State<IndicatorPage> {
         body: TabBarView(children: [
           Scaffold(
             body: Center(
-              child: IntrinsicHeight(
-                child: Row(
-                    crossAxisAlignment: CrossAxisAlignment.stretch,
-                    children: [
-                      Expanded(
-                        child: Column(children: <Widget>[
-                          Padding(
-                            padding: EdgeInsets.all(8.0),
-                            child: Container(
-                                height: 450, child: _indicatorsView()),
-                          ),
-                        ]),
-                      ),
-                    ]),
-              ),
+              child: _indicatorsView(),
             ),
             floatingActionButtonLocation:
                 FloatingActionButtonLocation.centerDocked,
@@ -69,22 +55,7 @@ class _IndicatorPageState extends State<IndicatorPage> {
             ),
           ),
           Scaffold(
-            body: Center(
-                child: IntrinsicHeight(
-              child: Row(
-                  crossAxisAlignment: CrossAxisAlignment.stretch,
-                  children: [
-                    Expanded(
-                      child: Column(children: <Widget>[
-                        Padding(
-                          padding: EdgeInsets.all(8.0),
-                          child: Container(
-                              height: 450.0, child: _dataElementsView()),
-                        ),
-                      ]),
-                    ),
-                  ]),
-            )),
+            body: Center(child: _dataElementsView()),
             floatingActionButtonLocation:
                 FloatingActionButtonLocation.centerDocked,
             floatingActionButton: FloatingActionButton(
@@ -100,21 +71,7 @@ class _IndicatorPageState extends State<IndicatorPage> {
           ), //IndicatorForm(context, Routes()).getDrawer(
           Scaffold(
             body: Center(
-              child: IntrinsicHeight(
-                child: Row(
-                    crossAxisAlignment: CrossAxisAlignment.stretch,
-                    children: [
-                      Expanded(
-                        child: Column(children: <Widget>[
-                          Padding(
-                            padding: EdgeInsets.all(8.0),
-                            child: Container(
-                                height: 450.0, child: _dataSourcesView()),
-                          ),
-                        ]),
-                      ),
-                    ]),
-              ),
+              child: _dataSourcesView(),
             ),
             floatingActionButtonLocation:
                 FloatingActionButtonLocation.centerDocked,
@@ -131,21 +88,7 @@ class _IndicatorPageState extends State<IndicatorPage> {
           ),
           Scaffold(
             body: Center(
-              child: IntrinsicHeight(
-                child: Row(
-                    crossAxisAlignment: CrossAxisAlignment.stretch,
-                    children: [
-                      Expanded(
-                        child: Column(children: <Widget>[
-                          Padding(
-                            padding: EdgeInsets.all(8.0),
-                            child: Container(
-                                height: 450.0, child: _indicatorTypesView()),
-                          ),
-                        ]),
-                      ),
-                    ]),
-              ),
+              child: _indicatorTypesView(),
             ),
             floatingActionButtonLocation:
                 FloatingActionButtonLocation.centerDocked,
@@ -168,6 +111,7 @@ class _IndicatorPageState extends State<IndicatorPage> {
   Widget _indicatorsView() {
     List<Indicator> indicators = _getIndicators();
     return Container(
+      padding: EdgeInsets.all(8.0),
       child: ListView(
         children: indicators
             .map((indicator) => _buildIndicatorRow(indicator))
@@ -217,6 +161,7 @@ class _IndicatorPageState extends State<IndicatorPage> {
   Widget _indicatorTypesView() {
     List<IndicatorType> indicatorsType = _getIndicatorsType();
     return Container(
+      padding: EdgeInsets.all(8.0),
       child: ListView(
         children: indicatorsType
             .map((indicatorType) => _buildIndicatorsTypeRow(indicatorType))
@@ -252,6 +197,7 @@ class _IndicatorPageState extends State<IndicatorPage> {
   Widget _dataElementsView() {
     List<DataElement> dataElements = _getDataElements();
     return Container(
+      padding: EdgeInsets.all(8.0),
       child: ListView(
         children: dataElements
             .map((dataElement) => _buildDataElementsRow(dataElement))
@@ -292,6 +238,7 @@ class _IndicatorPageState extends State<IndicatorPage> {
   Widget _dataSourcesView() {
     List<DataSource> dataSources = _getDataSources();
     return Container(
+      padding: EdgeInsets.all(8.0),
       child: ListView(
         children: dataSources
             .map((dataSource) => _buildDataSourcesRow(dataSource))
