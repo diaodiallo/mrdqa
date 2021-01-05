@@ -112,11 +112,21 @@ class _IndicatorPageState extends State<IndicatorPage> {
     List<Indicator> indicators = _getIndicators();
     return Container(
       padding: EdgeInsets.all(8.0),
-      child: ListView(
-        children: indicators
-            .map((indicator) => _buildIndicatorRow(indicator))
+      child: SingleChildScrollView(
+          child: DataTable(
+        columns: [
+          DataColumn(label: Text('Id')),
+          DataColumn(label: Text('Name')),
+          DataColumn(label: Text('Type')),
+        ],
+        rows: indicators
+            .map((indicator) => DataRow(cells: <DataCell>[
+                  DataCell(Text(indicator.id)),
+                  DataCell(Text(indicator.name)),
+                  DataCell(Text(indicator.typeId.toString())),
+                ]))
             .toList(),
-      ),
+      )),
     );
   }
 
@@ -145,28 +155,23 @@ class _IndicatorPageState extends State<IndicatorPage> {
     return indicators;
   }
 
-  Widget _buildIndicatorRow(Indicator indicator) {
-    return Column(
-      children: [
-        Divider(),
-        Row(mainAxisAlignment: MainAxisAlignment.start, children: [
-          Text(indicator.id),
-          Text(indicator.name),
-          Text(indicator.typeId.toString())
-        ]),
-      ],
-    );
-  }
-
   Widget _indicatorTypesView() {
     List<IndicatorType> indicatorsType = _getIndicatorsType();
     return Container(
       padding: EdgeInsets.all(8.0),
-      child: ListView(
-        children: indicatorsType
-            .map((indicatorType) => _buildIndicatorsTypeRow(indicatorType))
+      child: SingleChildScrollView(
+          child: DataTable(
+        columns: [
+          DataColumn(label: Text('Id')),
+          DataColumn(label: Text('Name')),
+        ],
+        rows: indicatorsType
+            .map((indicatorType) => DataRow(cells: <DataCell>[
+                  DataCell(Text(indicatorType.id.toString())),
+                  DataCell(Text(indicatorType.name)),
+                ]))
             .toList(),
-      ),
+      )),
     );
   }
 
@@ -182,27 +187,23 @@ class _IndicatorPageState extends State<IndicatorPage> {
     return indicators;
   }
 
-  Widget _buildIndicatorsTypeRow(IndicatorType indicatorType) {
-    return Column(
-      children: [
-        Divider(),
-        Row(mainAxisAlignment: MainAxisAlignment.start, children: [
-          Text(indicatorType.id.toString()),
-          Text(indicatorType.name)
-        ]),
-      ],
-    );
-  }
-
   Widget _dataElementsView() {
     List<DataElement> dataElements = _getDataElements();
     return Container(
       padding: EdgeInsets.all(8.0),
-      child: ListView(
-        children: dataElements
-            .map((dataElement) => _buildDataElementsRow(dataElement))
+      child: SingleChildScrollView(
+          child: DataTable(
+        columns: [
+          DataColumn(label: Text('Id')),
+          DataColumn(label: Text('Name')),
+        ],
+        rows: dataElements
+            .map((dataElement) => DataRow(cells: <DataCell>[
+                  DataCell(Text(dataElement.id)),
+                  DataCell(Text(dataElement.name)),
+                ]))
             .toList(),
-      ),
+      )),
     );
   }
 
@@ -224,26 +225,23 @@ class _IndicatorPageState extends State<IndicatorPage> {
     return dataElements;
   }
 
-  Widget _buildDataElementsRow(DataElement dataElement) {
-    return Column(
-      children: [
-        Divider(),
-        Row(
-            mainAxisAlignment: MainAxisAlignment.start,
-            children: [Text(dataElement.id), Text(dataElement.name)]),
-      ],
-    );
-  }
-
   Widget _dataSourcesView() {
     List<DataSource> dataSources = _getDataSources();
     return Container(
       padding: EdgeInsets.all(8.0),
-      child: ListView(
-        children: dataSources
-            .map((dataSource) => _buildDataSourcesRow(dataSource))
+      child: SingleChildScrollView(
+          child: DataTable(
+        columns: [
+          DataColumn(label: Text('Id')),
+          DataColumn(label: Text('Name')),
+        ],
+        rows: dataSources
+            .map((dataSource) => DataRow(cells: <DataCell>[
+                  DataCell(Text(dataSource.id)),
+                  DataCell(Text(dataSource.name)),
+                ]))
             .toList(),
-      ),
+      )),
     );
   }
 
@@ -263,16 +261,5 @@ class _IndicatorPageState extends State<IndicatorPage> {
       DataSource(id: "source012", name: 'Data Source 12'),
     ];
     return dataSources;
-  }
-
-  Widget _buildDataSourcesRow(DataSource dataSource) {
-    return Column(
-      children: [
-        Divider(),
-        Row(
-            mainAxisAlignment: MainAxisAlignment.start,
-            children: [Text(dataSource.id), Text(dataSource.name)]),
-      ],
-    );
   }
 }
