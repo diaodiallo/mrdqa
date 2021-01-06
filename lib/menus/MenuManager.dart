@@ -62,6 +62,13 @@ class MenuManager {
             Navigator.pushReplacementNamed(this.context, this.routes.databaseTest);
           },
         ),
+        ListTile(
+          leading: Icon(FontAwesomeIcons.wrench),
+          title: Text("Configuration"),
+          onTap: () {
+            Navigator.pushReplacementNamed(this.context, this.routes.configRouteName);
+          },
+        ),
         Divider(),
       ],
     );

@@ -2,7 +2,9 @@ import 'package:flutter/material.dart';
 import 'package:mrdqa_tool/models/Assessment.dart';
 import 'package:mrdqa_tool/models/Country.dart';
 import 'package:mrdqa_tool/repository/CountryRepository.dart';
+import 'package:mrdqa_tool/services/DataElementManager.dart';
 import 'package:mrdqa_tool/services/FirestoreDatabaseManager.dart';
+import 'package:mrdqa_tool/models/Config.dart';
 
 import '../services/SqliteDatabaseManager.dart';
 
@@ -54,6 +56,10 @@ class _TestDatabasePageState extends State<TestDatabasePage> {
                   _addToSqliteDb();
                   CountryRepository cr = new CountryRepository();
                   cr.addCountry(new Country("7890", "KENYA"));
+
+                  Config config = new Config();
+                  DataElementManager dataMan = new DataElementManager(config);
+                  dataMan.getData();
                   //FirestoreDatabaseManager firestore = FirestoreDatabaseManager();
                   //firestore.addAssessment(Assessment(facility_id: "908", assessment_data: id));
                   //firestore.deleteAssessment('p445wFjpl65JEzzRDYQI');
@@ -66,6 +72,10 @@ class _TestDatabasePageState extends State<TestDatabasePage> {
       ),
     );
   }
+
+  /**
+   * Just an example of how to store data into SQLITE
+   */
   void _addToSqliteDb() async {
     String task = textController.text;
     var data = {'ASSESSMENT_ID': task, 'DATA': '4325'};

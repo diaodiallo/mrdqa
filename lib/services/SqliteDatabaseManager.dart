@@ -4,15 +4,8 @@ import 'package:sqflite/sqflite.dart';
 import '../models/Assessment.dart';
 
 class SqliteDatabaseManager {
-  static final DATABASE_NAME = "mdqa_dev.db";
+  static final DATABASE_NAME = "mrdqa_dev.db";
   static final DATABASE_VERSION = 1;
-
-  //Country Table
-
-  //static final DATABASE_TABLE = "assessment";
-  //static final ASSESSMENT_ID = 'id';
-  //static final FACILITY_ID = 'facility_id';
-  //static final ASSESSMENT_DATA = 'assessment_data';
 
   SqliteDatabaseManager._privateConstructor();
   static final SqliteDatabaseManager instance = SqliteDatabaseManager._privateConstructor();
@@ -46,7 +39,7 @@ class SqliteDatabaseManager {
           )
           ''');
 
-    /*await db.execute('''
+    await db.execute('''
           CREATE TABLE COUNTRIES (
             ID INTEGER PRIMARY KEY AUTOINCREMENT,
             COUNTRY_ID TEXT NOT NULL,
@@ -66,10 +59,24 @@ class SqliteDatabaseManager {
         PHONE TEXT NOT NULL,
         EMAIL TEXT NOT NULL
       )
-      ''');*/
+      ''');
+
+    await db.execute('''
+      CREATE TABLE configuration (
+        ID INTEGER PRIMARY KEY AUTOINCREMENT,
+        base_url TEXT NOT NULL,
+        dhis_username TEXT NOT NULL,
+        dhis_password TEXT NOT NULL
+      )
+      ''');
   }
   Future<int> insert(String table, Map<String, dynamic> data) async {
     Database db = await instance.database;
     return await db.insert(table, data);
+  }
+  Future<List<Map<String, dynamic>>> queryAllRows(String table) async {
+    Database db = await instance.database;
+    var res = await db.query(table);
+    return res;
   }
 }

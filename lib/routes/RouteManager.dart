@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:mrdqa_tool/forms/IndicatorForm.dart';
+import 'package:mrdqa_tool/pages/ConfigurationPage.dart';
 import 'package:mrdqa_tool/pages/TestDatabasePage.dart';
 import 'package:mrdqa_tool/pages/DashboardPage.dart';
 import 'package:mrdqa_tool/pages/FacilityInformationPage.dart';
@@ -34,7 +35,7 @@ class RouteManager {
       case '/supervisions':
         return MaterialPageRoute(builder: (_) => SupervisionPage());
       //return _errorRoute();
-      case '/test_database':
+      case '/test_database': //For TESTING PURPOSES ONLY
         return MaterialPageRoute(builder: (_) => TestDatabasePage());
 
       case '/data_entry':
@@ -51,6 +52,9 @@ class RouteManager {
 
       case '/indicators/add_data_source':
         return MaterialPageRoute(builder: (_) => DataSourceForm());
+
+      case '/configuration':
+        return MaterialPageRoute(builder: (_) => ConfigurationPage());
 
       default:
         return _errorRoute();

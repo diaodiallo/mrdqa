@@ -1,3 +1,4 @@
+import 'package:mrdqa_tool/pages/ConfigurationPage.dart';
 import 'package:mrdqa_tool/pages/TestDatabasePage.dart';
 import 'package:mrdqa_tool/pages/DashboardPage.dart';
 import 'package:mrdqa_tool/pages/FacilityInformationPage.dart';
@@ -22,6 +23,7 @@ class Routes {
   String _addIndicatorType = IndicatorTypeForm.routeName;
   String _addDataElement = DataElementForm.routeName;
   String _addDataSource = DataSourceForm.routeName;
+  String _configuration = ConfigurationPage.routeName;
 
   String get instructions => _instructions;
 
@@ -44,4 +46,6 @@ class Routes {
   String get addDataElement => _addDataElement;
 
   String get addDataSource => _addDataSource;
+
+  String get configRouteName => _configuration;
 }
