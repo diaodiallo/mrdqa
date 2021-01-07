@@ -1,6 +1,8 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:mrdqa_tool/models/Config.dart';
+import 'package:mrdqa_tool/services/ConfigManager.dart';
+import 'package:mrdqa_tool/services/SqliteDatabaseManager.dart';
 
 class ConfigurationPage extends StatefulWidget {
   static String routeName = '/configuration';
@@ -12,20 +14,28 @@ class ConfigurationPage extends StatefulWidget {
 
 class _ConfigurationPageState extends State<ConfigurationPage> {
   final _formKey = GlobalKey<FormState>();
+  ConfigManager _configManager;
   TextEditingController _baseUrlTextController;
   TextEditingController _passwordController;
   TextEditingController _usernameController;
   Config _config;
-  String _baseUrl;
+  //String _baseUrl;
 
   @override
   void initState(){
-    this._config =  new Config();
-    this._baseUrl = this._config.getBaseUrl();
     super.initState();
-    _baseUrlTextController = new TextEditingController(text: this._baseUrl);
-    _passwordController = new TextEditingController();
-    _usernameController = new TextEditingController();
+    this._config =  new Config();
+    _configManager = new ConfigManager();
+    Future<Config> con = _configManager.getConfig();
+    con.then((data) {
+      setState(() {
+        print(data.getBaseUrl());
+        _baseUrlTextController = new TextEditingController(text: data.getBaseUrl());
+        _passwordController = new TextEditingController(text: data.getPassword());
+        _usernameController = new TextEditingController(text: data.getUsername());
+      });
+
+    });
   }
 
   @override
@@ -51,7 +61,6 @@ class _ConfigurationPageState extends State<ConfigurationPage> {
                             labelText: "DHIS2 URL",
                           ),
                           controller: _baseUrlTextController,
-                          //initialValue: "45",
                         ),
                         TextFormField(
                           keyboardType: TextInputType.text,
@@ -68,16 +77,14 @@ class _ConfigurationPageState extends State<ConfigurationPage> {
                             labelText: "Password",
                           ),
                           controller: _passwordController,
+                          obscureText: true,
                         ),
                         new RaisedButton(child: const Text('Save'),onPressed: (){
                           if (_formKey.currentState.validate()){
-                            //Scaffold.of(context).showSnackBar(SnackBar(content: Text('Processing Data')));
-                            String baseUrl = _baseUrlTextController.text;
-                            debugPrint('Saving to SQLite: '+baseUrl);
-
-                            //_addToSqliteDb();
-
-                            //Config config = new Config();
+                            _config.setBaseUrl(_baseUrlTextController.text);
+                            _config.setUsername(_usernameController.text);
+                            _config.setPassword(_passwordController.text);
+                            _configManager.saveConfig(_config);
                           }
                         }),
                       ],

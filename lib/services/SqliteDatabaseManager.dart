@@ -3,6 +3,7 @@ import 'package:sqflite/sqflite.dart';
 
 import '../models/Assessment.dart';
 
+/// SQLite database service containing helper functions.
 class SqliteDatabaseManager {
   static final DATABASE_NAME = "mrdqa_dev.db";
   static final DATABASE_VERSION = 1;
@@ -11,6 +12,7 @@ class SqliteDatabaseManager {
   static final SqliteDatabaseManager instance = SqliteDatabaseManager._privateConstructor();
   static Database _database;
 
+  /// Creates the database in-case it doesn't exist
   Future<Database> get database async {
     if (_database != null) return _database;
     // lazily instantiate the db the first time it is accessed
@@ -29,8 +31,8 @@ class SqliteDatabaseManager {
   }
 
   Future _onCreate(Database db, int version) async {
-    //For testing purposes ONLY
-    print('CREATIN TABLES');
+    //The Assessment Table is for testing purposes ONLY
+    print('CREATING TABLES');
     await db.execute('''
           CREATE TABLE ASSESSMENTS (
             ID INTEGER PRIMARY KEY AUTOINCREMENT,
@@ -74,9 +76,15 @@ class SqliteDatabaseManager {
     Database db = await instance.database;
     return await db.insert(table, data);
   }
+
   Future<List<Map<String, dynamic>>> queryAllRows(String table) async {
     Database db = await instance.database;
     var res = await db.query(table);
     return res;
+  }
+
+  Future<void> clearTable(String table) async {
+    Database db = await instance.database;
+    return await db.rawQuery("DELETE FROM ${table}");
   }
 }
