@@ -35,7 +35,7 @@ class MenuManager {
           },
         ),
         ListTile(
-          leading: Icon(FontAwesomeIcons.prescription),
+          leading: Icon(FontAwesomeIcons.car),
           title: Text("Supervisions"),
           onTap: () {
             Navigator.pushReplacementNamed(this.context, this.routes.supervisions);

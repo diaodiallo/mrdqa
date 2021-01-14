@@ -10,6 +10,7 @@ import 'package:mrdqa_tool/forms/IndicatorForm.dart';
 import 'package:mrdqa_tool/forms/IndicatorTypeForm.dart';
 import 'package:mrdqa_tool/forms/DataElementForm.dart';
 import 'package:mrdqa_tool/forms/DataSourceForm.dart';
+import 'package:mrdqa_tool/forms/SupervisionForm.dart';
 
 class Routes {
   String _instructions = InstructionPage.routeName;
@@ -23,6 +24,7 @@ class Routes {
   String _addIndicatorType = IndicatorTypeForm.routeName;
   String _addDataElement = DataElementForm.routeName;
   String _addDataSource = DataSourceForm.routeName;
+  String _addSupervision = SupervisionForm.routeName;
   String _configuration = ConfigurationPage.routeName;
 
   String get instructions => _instructions;
@@ -46,6 +48,8 @@ class Routes {
   String get addDataElement => _addDataElement;
 
   String get addDataSource => _addDataSource;
+
+  String get addSupervision => _addSupervision;
 
   String get configRouteName => _configuration;
 }

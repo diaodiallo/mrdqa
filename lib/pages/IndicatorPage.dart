@@ -117,13 +117,13 @@ class _IndicatorPageState extends State<IndicatorPage> {
         columns: [
           DataColumn(label: Text('Id')),
           DataColumn(label: Text('Name')),
-          DataColumn(label: Text('Type')),
         ],
         rows: indicators
             .map((indicator) => DataRow(cells: <DataCell>[
-                  DataCell(Text(indicator.id)),
-                  DataCell(Text(indicator.name)),
-                  DataCell(Text(indicator.typeId.toString())),
+                  DataCell(Container(
+                      width: 50, //SET width
+                      child: Text(indicator.id))),
+                  DataCell(Container(child: Text(indicator.name))),
                 ]))
             .toList(),
       )),
@@ -157,13 +157,11 @@ class _IndicatorPageState extends State<IndicatorPage> {
 
   String _getTypeById(int id) {
     List<IndicatorType> indicatorsType = _getIndicatorsType();
-    indicatorsType.map((indicatorType) => (
-        (){
-          if(indicatorType.id == id) {
+    indicatorsType.map((indicatorType) => (() {
+          if (indicatorType.id == id) {
             return indicatorType.name;
           }
-        }()
-    ));
+        }()));
   }
 
   Widget _indicatorTypesView() {

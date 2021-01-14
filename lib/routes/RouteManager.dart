@@ -11,6 +11,7 @@ import 'package:mrdqa_tool/pages/DataEntryPage.dart';
 import 'package:mrdqa_tool/forms/IndicatorTypeForm.dart';
 import 'package:mrdqa_tool/forms/DataElementForm.dart';
 import 'package:mrdqa_tool/forms/DataSourceForm.dart';
+import 'package:mrdqa_tool/forms/SupervisionForm.dart';
 
 class RouteManager {
   static Route<dynamic> generateRoute(RouteSettings settings) {
@@ -52,6 +53,9 @@ class RouteManager {
 
       case '/indicators/add_data_source':
         return MaterialPageRoute(builder: (_) => DataSourceForm());
+
+      case '/supervisions/add':
+        return MaterialPageRoute(builder: (_) => SupervisionForm());
 
       case '/configuration':
         return MaterialPageRoute(builder: (_) => ConfigurationPage());
